@@ -1,6 +1,38 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>com.prueba.jenkins</groupId>
   <artifactId>proyectosimple</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  <!-- Configuración del repositorio de destino -->
+  <distributionManagement>
+    <!-- Despliegue en un repositorio local -->
+    <repository>
+      <id>local-repo</id>
+      <url>file://${project.basedir}/repo</url>
+    </repository>
+    
+    <!-- Repositorio remoto (opcional) -->
+    <!--
+    <repository>
+      <id>remote-repo</id>
+      <url>http://your-repository-url/repository/releases</url>
+    </repository>
+    -->
+  </distributionManagement>
+  
+  <build>
+    <plugins>
+      <!-- Plugin para despliegue -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.0.0-M1</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
